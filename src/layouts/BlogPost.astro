@@ -24,11 +24,11 @@ const heroImageAsset = assets.find((asset) => {
   if (!heroImage) {
     return false;
   }
-  if (!asset.default?.src) {
+  if (!asset.default) {
     return false;
   }
-  const index = asset.default.src.indexOf("/assets/");
-  return asset.default.src.slice(index) === heroImage;
+  const index = asset.default.indexOf("/assets/");
+  return asset.default.slice(index) === heroImage;
 });
 ---
 
