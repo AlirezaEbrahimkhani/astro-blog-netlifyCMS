@@ -2,6 +2,7 @@
 import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import { Image } from "@astrojs/image/components";
 
 export interface Props {
   content: {
@@ -24,11 +25,11 @@ const heroImageAsset = assets.find((asset) => {
   if (!heroImage) {
     return false;
   }
-  if (!asset.default) {
+  if (!asset.default?.src) {
     return false;
   }
-  const index = asset.default.indexOf("/assets/");
-  return asset.default.slice(index) === heroImage;
+  const index = asset.default.src.indexOf("/assets/");
+  return asset.default.src.slice(index) === heroImage;
 });
 ---
 
@@ -53,7 +54,12 @@ const heroImageAsset = assets.find((asset) => {
       <article>
         {
           heroImageAsset && (
-            <img width={720} height={360} src={heroImageAsset.default} alt="" />
+            <Image
+              width={720}
+              height={360}
+              src={heroImageAsset.default}
+              alt=""
+            />
           )
         }
         <h1 class="title">{title}</h1>
