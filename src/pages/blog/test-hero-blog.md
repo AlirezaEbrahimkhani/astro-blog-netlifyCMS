@@ -31,8 +31,6 @@ Itatur? Quiatae cullecum rem ent aut odis in re eossequodi nonsequ idebis ne sap
 
 ![Salon Background](/assets/salon-bg.png)
 
-
-
 ```abuild
 const assets = await Astro.glob('../assets/**/*');
 const heroImageAsset = assets.find(asset => {
